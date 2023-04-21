@@ -16,6 +16,53 @@ attr_accessor :root
 
         root_node
     end
+
+    def insert(value, node = root)
+        return nil if value == node.value
+
+        if value < node.value
+            node.left.nil? ? node.left = Node.new(value) : insert(value, node.left)
+        else value > node.value
+            node.right.nil? ? node.right = Node.new(value) : insert(value, node.right)
+        end
+    end
+
+    def delete(value, node = root)
+        return node if node.nil?
+
+        if value < node.value
+            node.left = delete(value, node.left)
+        elsif value > node.value
+            node.right = delete(value, node.right)
+        elsif value == node.value
+            if node.left.nil? && node.right.nil?
+                node = nil
+            elsif node.left.nil?
+                node = node.right
+            elsif node.right.nil?
+                node = node.left
+            else
+            min_node = find_min(node.right)
+            node.value = min_node.value
+            node.right = delete(min_node.value, node.right)
+        end
+    end
+    node
+end
+
+
+
+
+
+    def find_min(node)
+        while node.left
+            node = node.left
+        end
+        node
+    end
+
+
+
     def pretty_print(node = @root, prefix = '', is_left = true)
         pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
         puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"

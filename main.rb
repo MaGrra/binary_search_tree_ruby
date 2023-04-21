@@ -8,6 +8,14 @@ the_tree = Tree.new(raw_array)
 
 p raw_array
 p the_tree
+puts "OG Tree"
+the_tree.pretty_print
 
+puts "Insert"
+the_tree.insert(17)
+the_tree.pretty_print
+
+puts "Delete"
+the_tree.delete(4)
 the_tree.pretty_print
 
