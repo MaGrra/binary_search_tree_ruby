@@ -1,8 +1,7 @@
 class Node
     include Comparable
 
-  attr_accessor :left_node, :right_node
-  attr_reader   :value
+  attr_accessor :left, :right, :value
 
   def initialize(value = nil, left = nil, right = nil)
     @value = value
