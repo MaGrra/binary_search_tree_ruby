@@ -19,3 +19,8 @@ puts "Delete"
 the_tree.delete(4)
 the_tree.pretty_print
 
+puts "Find"
+puts the_tree.find(5)
+
+puts "Level order"
+the_tree.level_order

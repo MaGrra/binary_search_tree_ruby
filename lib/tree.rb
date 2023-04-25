@@ -49,16 +49,33 @@ attr_accessor :root
     end
     node
 end
-
-
-
-
-
     def find_min(node)
         while node.left
             node = node.left
         end
         node
+    end
+
+    def find (value, node = root)
+        return node if node.nil?
+        return node.value if value == node.value
+        return "No node" if node.left.nil? && node.right.nil?
+
+        if value < node.value
+             find(value, node.left)
+        elsif value > node.value
+             find(value, node.right)
+        end
+    end
+
+    def level_order (node = root, queue = [])
+        print "#{node} and the value #{node.value} \n"
+
+        queue << node.left unless node.left.nil?
+        queue << node.right unless node.right.nil?
+        return if queue.empty?
+
+        level_order(queue.shift, queue)
     end
 
 
