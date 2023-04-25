@@ -47,3 +47,26 @@ puts "\nThis is new tree \n"
 
 new_tree = Tree.new(the_tree.inOrder)
 new_tree.pretty_print
+
+puts " Tie it all together "
+
+final_tree = Tree.new(Array.new(15) { rand(1..100) })
+p final_tree.balanced?
+
+final_tree.preOrder
+print "\n"
+final_tree.inOrder
+print "\n"
+final_tree.postOrder
+print "\n"
+
+final_tree.insert(102)
+final_tree.insert(112)
+final_tree.insert(122)
+final_tree.insert(109)
+
+final_tree.pretty_print
+p final_tree.balanced?
+final_tree = Tree.new(final_tree.inOrder)
+puts " "
+final_tree.pretty_print

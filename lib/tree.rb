@@ -86,8 +86,10 @@ end
         return if node.nil?
 
         inOrder(node.left, result)
+        print " #{node.value}"
         result.push(node.value)
         inOrder(node.right, result)
+        
         return result
     end
 
