@@ -82,12 +82,13 @@ end
             print result
     end
 
-    def inOrder(node = root)
+    def inOrder(node = root, result = [])
         return if node.nil?
 
-        inOrder(node.left)
-        print " #{node.value}"
-        inOrder(node.right)
+        inOrder(node.left, result)
+        result.push(node.value)
+        inOrder(node.right, result)
+        return result
     end
 
     def level_order (node = root, queue = [])
@@ -131,6 +132,22 @@ end
         end
       end
     
+    def depth(node = root)
+        return height(root) - height(node)
+      end
+
+      def balanced?(node = root)
+      return true if node.nil?
+  
+      left_height = height(node.left)
+      right_height = height(node.right)
+  
+      return true if (left_height - right_height).abs <= 1 && balanced?(node.left) && balanced?(node.right)
+  
+      false
+    end
+
+      
 
 
     def pretty_print(node = @root, prefix = '', is_left = true)
