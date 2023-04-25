@@ -23,4 +23,16 @@ puts "Find"
 puts the_tree.find(5)
 
 puts "Level order"
-the_tree.level_order
+the_tree.lvl_ord_loop
+
+puts "\nIn order\n"
+the_tree.inOrder
+
+puts "\nPreOrder"
+the_tree.preOrder
+
+puts "\nPost order"
+the_tree.postOrder
+
+puts "\n Height"
+p the_tree.height(the_tree.find(67))
